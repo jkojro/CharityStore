@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
 		if @product.save
 			redirect_to @product, notice: "Produkt został wystawiony na sprzedaż."
 		else
-			redner 'new'
+			render 'new'
 		end
 	end
 
