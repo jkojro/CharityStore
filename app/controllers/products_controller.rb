@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 
 	def update
 		if @product.update(product_params)
-			redirect_to @product, notice: "Product został zaktualizowany."
+			redirect_to @product, notice: "Produkt został zaktualizowany."
 		else
 			render 'edit'
 		end
