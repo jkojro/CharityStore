@@ -1,0 +1,7 @@
+%h2= @product.title
+%p= @product.description
+%p= @product.price
+
+= link_to 'Powrót', products_path
+= link_to 'Edytuj', edit_product_path
+= link_to 'Usuń', product_path, method: :delete, data: {confirm: "Uzunąć produkt?"}
