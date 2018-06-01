@@ -4,13 +4,16 @@ one:
   title: MyString
   description: MyText
   price: 9.99
+  user_id: 1
 
 two:
   title: MyString
   description: MyText
   price: 9.99
+  user_id: 2
 
 product:
   title: Example title 
   description: Example description
   price: 19.99
+  user_id: 1

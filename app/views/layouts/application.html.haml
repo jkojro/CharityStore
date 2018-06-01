@@ -7,6 +7,13 @@
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 %body
+  %navbar
+    - if user_signed_in?
+      = link_to "Wyloguj", destroy_user_session_path, method: :delete
+      = link_to "Moje konto"
+    - else
+      = link_to "Zaloguj", new_user_session_path
+      = link_to "Załóż konto", new_user_registration_path
   - flash.each do |name, msg|
     = content_tag :div, msg, class: "alert alert-info"
   = yield

@@ -14,7 +14,8 @@ end
 
   test "product price must be positive" do
     product = Product.new(title: "Testowy produkt",
-						  description: "yyy")
+						  description: "yyy",
+              user_id: 1)
     product.price = -1
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],

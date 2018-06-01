@@ -1,6 +1,7 @@
 %h2= @product.title
 %p= @product.description
 %p= @product.price
+%p= @product.user.email
 
 = link_to 'Powrót', products_path
 = link_to 'Edytuj', edit_product_path
