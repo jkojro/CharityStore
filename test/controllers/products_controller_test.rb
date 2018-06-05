@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @product = products(:one)
     @update = {
@@ -9,12 +10,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       price: 19.95,
       user_id: 1
     }
+    sign_in users(:one)
   end
 
   test "should get index" do
     get products_url
     assert_response :success
-    #assert_not_nil assigns(:products)
+    assert_not_nil assigns(:products)
   end
 
   test "should get new" do

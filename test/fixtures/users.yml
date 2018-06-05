@@ -1,5 +1,7 @@
 one:
   email: test1@test.com
+  name: Janusz
 
 two:
   email: test2@test.com
+  name: Asia

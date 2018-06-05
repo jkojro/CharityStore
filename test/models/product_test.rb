@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
 	fixtures :products
 
   test "product attributes must not be empty"  do
@@ -13,9 +14,12 @@ end
   
 
   test "product price must be positive" do
-    product = Product.new(title: "Testowy produkt",
+    current_user = users(:one)
+    product = current_user.products.build(title: "Testowy produkt",
 						  description: "yyy",
-              user_id: 1)
+              user_id: 1,
+              id: 1)
+
     product.price = -1
     assert product.invalid?
     assert_equal ["must be greater than or equal to 0.01"],
