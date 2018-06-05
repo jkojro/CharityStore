@@ -3,4 +3,15 @@ class Product < ApplicationRecord
 	validates :price, numericality: { greater_than_or_equal_to: 0.01 }
 	validates :title, uniqueness: true
 	belongs_to :user
+	has_many :items
+	before_destroy :ensure_not_referenced_by_any_item
+
+	private
+
+	def ensure_not_referenced_by_any_item
+		unless items.empty?
+			errors.add(:base, 'Na stanie są sztuki tego produktu')
+			throw :abort
+		end
+	end
 end
