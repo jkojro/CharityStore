@@ -1,3 +1,5 @@
 class CartsController < ApplicationController
-	has_many :items, dependent: :destroy
+	def show
+		@cart = Cart.find(params[:id])
+	end
 end
