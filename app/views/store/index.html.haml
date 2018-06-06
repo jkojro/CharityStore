@@ -1,0 +1,14 @@
+%p{:id=> "notice"} %=notice
+
+.store
+  %h1= "Produkty w Charity Store"
+  - @products.each do |product|
+    .entry
+      %h3= link_to product.title, product
+      %p= sanitize(product.description)
+      .price_line
+        #span{:class => "price"}
+          = number_to_currency(product.price)
+      = button_to 'Dodaj do koszyka', items_path(product_id: product)
+
+
