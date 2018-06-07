@@ -22,8 +22,7 @@ class ItemsController < ApplicationController
 	  @item = @cart.add_product(product)
 
 	  if @item.save
-		  redirect_to @item.cart,
-		    notice: 'Produkt został dodany do koszyka.'
+		  redirect_to @item.cart
 	  else
 		  render :new
 	  end

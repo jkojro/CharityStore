@@ -12,8 +12,10 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   	follow_redirect!
 
+    puts @response.body
+
   	assert_select 'h2', 'MÓJ KOSZYK'
-  	assert_select 'li', '1 x Example title'
+  	assert_select 'td', 'Example title'
   end
 
   test "should update item" do
