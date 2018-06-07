@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 	before_action :set_product, only: [:show, :update, :edit, :destroy]
+	rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
 
 	def index
 		@products = Product.order("created_at DESC")
@@ -48,6 +49,11 @@ class ProductsController < ApplicationController
 	def product_params
 		params.require(:product).permit(:title, :description, :price)
 	end
+	
+	def invalid_product
+      logger.error "Produkt nie istnieje"
+      redirect_to store_index_url, notice: 'Wybrano niewłaściwy produkt'
+    end
 
 
 end

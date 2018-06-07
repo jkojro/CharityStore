@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_item
 
   def index
 	@items = Item.all
@@ -38,8 +39,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to items_url,
+    if @item.quantity > 1
+      @item.quantity -=1
+      @item.save
+    else
+      @item.destroy
+    end
+    redirect_to @cart,
       notice: 'Towar został usunięty z koszyka.'
   end
 
@@ -52,6 +58,11 @@ class ItemsController < ApplicationController
   def item_params
 	  params.require(:item).permit(:product_id)
   end
+
+  def invalid_item
+      logger.error "Towar nie istnieje"
+      redirect_to store_index_url, notice: 'Wybrany towar nie istnieje'
+    end
 end
 
 

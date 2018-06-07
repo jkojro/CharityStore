@@ -12,8 +12,6 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   	follow_redirect!
 
-    puts @response.body
-
   	assert_select 'h2', 'MÓJ KOSZYK'
   	assert_select 'td', 'Example title'
   end
@@ -24,4 +22,16 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to item_url(@item)
   end
 
+  test "shouldn't destroy item when quantity is greater than 1" do
+    assert_difference('Item.count', 0) do
+      delete item_url(@item)
+    end
+  end
+
+  test "should destroy item when quantity is equal to 1" do
+    @item = items(:two)
+    assert_difference('Item.count', -1) do
+      delete item_url(@item)
+    end
+  end
 end
