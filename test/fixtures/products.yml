@@ -11,7 +11,7 @@ two:
   user: two
 
 product:
-  title: Example title 
+  title: Example title
   description: Example description
   price: 19.99
   user: two

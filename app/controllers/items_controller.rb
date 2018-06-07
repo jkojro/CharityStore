@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
 
   def create
 	product = Product.find(params[:product_id])
-	@item = @cart.items.build(product: product)
+	@item = @cart.add_product(product)
 
 	if @item.save
 		redirect_to @item.cart,
