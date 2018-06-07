@@ -77,7 +77,14 @@ body, body > p, body > ol, body > td {margin: 8px !important}
         border-top: 1px dotted #595;
         border-bottom: 1px dotted #595;
         margin-bottom: 10px;
+
+        .remove_item {
+          color: #66b3ff;
+        }
       }
+      #remove {
+          color: #66b3ff;
+        }
     }
 
     ul {

@@ -1,13 +1,16 @@
-.item_price, .total_line {
-    text-align: right;
+.carts, #siede #cart {
+	.item_price, .total_line {
+    	text-align: right;
+	}
+
+	.total_line .total_cell {
+		font-weight: bold;
+		border-top: 1px solid blue;
+	}
+
+	.total {
+		padding-right: 10px;
+	font-weight: bold;
+	}
 }
 
-.total_line .total_cell {
-	font-weight: bold;
-	border-top: 1px solid blue;
-}
-
-.total {
-	padding-right: 10px;
-	font-weight: bold;
-}

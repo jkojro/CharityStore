@@ -18,6 +18,9 @@
       = content_tag :div, msg, class: "alert alert-info"
     #columns
       #side
+        #cart
+          - if @cart
+            = render @cart
         %ul
           %li
             %a= link_to 'Pierwszy'

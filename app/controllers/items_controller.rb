@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 	  @item = @cart.add_product(product)
 
 	  if @item.save
-		  redirect_to @item.cart
+		  redirect_to store_index_url
 	  else
 		  render :new
 	  end
@@ -45,8 +45,7 @@ class ItemsController < ApplicationController
     else
       @item.destroy
     end
-    redirect_to @cart,
-      notice: 'Towar został usunięty z koszyka.'
+    redirect_to store_index_url
   end
 
   private
