@@ -22,10 +22,13 @@ class ItemsController < ApplicationController
 	  product = Product.find(params[:product_id])
 	  @item = @cart.add_product(product)
 
-	  if @item.save
-		  redirect_to store_index_url
-	  else
-		  render :new
+    respond_to do |format|
+	    if @item.save
+		    format.html { redirect_to store_index_url }
+        format.js { @current_item = @item }
+	    else
+		    render :new
+      end
 	  end
   end
 

@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */
@@ -59,7 +60,7 @@ body, body > p, body > ol, body > td {margin: 8px !important}
 
   #side {
     padding: 1em 2em;
-    background: grey;
+    background: #999999;
 
     form, div {
     display: inline;

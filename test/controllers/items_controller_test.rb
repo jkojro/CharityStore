@@ -16,6 +16,18 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   	assert_select 'td', 'Example title'
   end
 
+  test "should create item via Ajax" do
+    assert_difference('Item.count') do
+      post items_url, params: { product_id: products(:product).id }, 
+        xhr: true
+    end
+
+    assert_response :success 
+    assert_select_jquery :html, '#cart' do
+      assert_select 'tr.current_item td', /Example title/ 
+    end
+  end
+
   test "should update item" do
     patch item_url(@item),
       params: { item: { product_id: @item.product_id } }
