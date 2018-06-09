@@ -24,12 +24,15 @@ class ProductsController < ApplicationController
 	end
 
 	def edit
-
 	end
 
 	def update
 		if @product.update(product_params)
 			redirect_to @product, notice: "Produkt został zaktualizowany."
+
+			@products = Product.all
+			ActionCable.server.broadcast 'products',
+			  html: render_to_string('store/index', layout: false)
 		else
 			render 'edit'
 		end
