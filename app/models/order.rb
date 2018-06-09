@@ -14,8 +14,16 @@ class Order < ApplicationRecord
 	validates :foundation, inclusion: foundations.keys
 
 
-	def add_items_from_cart(cart)
-		cart.items.each do |item|
+	# def add_items_from_cart(cart)
+	# 	cart.items.each do |item|
+	# 		item.cart_id = nil
+	# 		items << item
+	# 	end
+	# end
+
+	def add_sellers_items_from_cart(items, seller)
+  		sellers_items = items.select {|item| item.product.user_id == seller}
+		sellers_items.each do |item|
 			item.cart_id = nil
 			items << item
 		end
