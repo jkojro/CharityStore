@@ -46,4 +46,17 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       delete item_url(@item)
     end
   end
+
+  test "should destroy item via Ajax" do
+    @item = items(:two)
+    assert_difference('Item.count', -1) do
+      delete item_url(@item), xhr: true
+    end
+  end
+
+    test "shouldn't destroy item via Ajax when quantity is greater than 1" do
+    assert_difference('Item.count', 0) do
+      delete item_url(@item), xhr: true
+    end
+  end
 end
