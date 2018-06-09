@@ -46,14 +46,14 @@ class ItemsController < ApplicationController
       @item.quantity -=1
       @item.save
       respond_to do |format|
-        format.html { }
+        format.html 
         format.js { @current_item = @item }
       end
     else
       @item.destroy
       respond_to do |format|
-        format.html {  }
-        format.js
+        format.html 
+        format.js { @current_item = @item }
       end
     end
     redirect_to store_index_url

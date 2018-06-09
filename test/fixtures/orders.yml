@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Janusz
+  address: MyAddress
+  email: janusz@gmail.com
+  foundation: Ratujmy Puszczę
+
+two:
+  name: Asia
+  address: MyAddress
+  email: asia@gmail.com
+  foundation: 1
