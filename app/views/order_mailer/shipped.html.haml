@@ -1,0 +1,8 @@
+%h3 Zamównienie w Charity Store zostało wysłane
+%p
+  Przypominamy jakie produkty zostały wysłane:
+%table
+  %tr
+    %th{:colspan => "2"} Qty
+    %th Description
+  = render @order.items

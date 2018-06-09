@@ -8,7 +8,7 @@ two:
   title: MyString2
   description: MyText
   price: 9.99
-  user: two
+  user_id: 2
 
 product:
   title: Example title

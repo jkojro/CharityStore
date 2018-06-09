@@ -1,0 +1,6 @@
+%h1
+ Drogi #{@order.name}
+Dziękujemy za zamówienie w Charity Store. Twoje zamówienie składa się z następujących produktów:
+= render(@order.items)
+Wpłaconymi przez Ciebie pieniędzmi będzie się cieszyć fundacja "#{@order.foundation}"
+Wyślemy Ci oddzielnego maila gdy zamówienie zostanie wysłane.
