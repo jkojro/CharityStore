@@ -43,16 +43,6 @@ class ProductsController < ApplicationController
 		redirect_to products_path
 	end
 
-	def who_bought
-      @product = Product.find(parmas[:id])
-      @last_order = @products.orders.order(:updated_at).last_order
-      if stale?(@latest_order)
-        respodn_to do |format|
-          format.atom
-        end
-      end
-    end
-
 	private
 
 	def set_product
