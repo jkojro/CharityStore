@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
       @item.destroy
       respond_to do |format|
         format.html 
-        format.js { @current_item = @item }
+        format.js 
       end
     end
     redirect_to store_index_url

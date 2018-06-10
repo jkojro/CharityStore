@@ -1,8 +1,8 @@
-%h2 MÓJ KOSZYK
+%h2 Koszyk
 %table
   = render(cart.items)
   %tr.total_line
     %td.total{:colspan => "2"} Total
     %td.total_cell= number_to_currency(cart.total_price)
-= button_to "Kupuję", new_order_path, method: :get 
-#remove= button_to 'Opróżnij koszyk', cart, method: :delete, data: {confirm: 'Na pewno?'}
+#button= button_to "Kupuję", new_order_path, method: :get 
+#button= button_to 'Opróżnij koszyk', cart, method: :delete, data: {confirm: 'Na pewno?'}

@@ -22,6 +22,10 @@
 
 body, body > p, body > ol, body > td {margin: 8px !important}
 
+h1 {
+  color: #66b3ff !important;
+}
+
 #body {
   background: #9c9;
 }
@@ -83,7 +87,7 @@ body, body > p, body > ol, body > td {margin: 8px !important}
           color: #66b3ff;
         }
       }
-      #remove {
+      #button {
           color: #66b3ff;
         }
     }

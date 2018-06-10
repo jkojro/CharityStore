@@ -22,12 +22,12 @@
           - if @cart
             = hidden_div_if(@cart.items.empty?, id: 'cart') do
               = render @cart
-        %ul
-          %li
-            %a= link_to 'Pierwszy'
-          %li
-            %a= link_to 'Drugi'
-          %li
-            %a= link_to 'Trzeci'
+        / %ul
+        /   %li
+        /     %a= link_to 'Pierwszy'
+        /   %li
+        /     %a= link_to 'Drugi'
+        /   %li
+        /     %a= link_to 'Trzeci'
       #main
         = yield
