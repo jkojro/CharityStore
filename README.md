@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Deploy to Heroku 2018 version.
 
 Things you may want to cover:
 
